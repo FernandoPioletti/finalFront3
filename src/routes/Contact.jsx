@@ -6,5 +6,4 @@ const Contact = () => {
     <Form />
   )
 }
-
 export default Contact

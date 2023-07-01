@@ -8,36 +8,34 @@ import { Link, useParams } from "react-router-dom"
 
 const Details = () => {
 
-  const [detail, setDetail] = useState("")
+  const [detalles, setDetalles] = useState("")
   const {id} = useParams()
   
 
   useEffect(()=>{
 
-    axios.get(`https://jsonplaceholder.typicode.com/users/${id}`).then(res => setDetail(res.data))
-
-
-
+    axios.get(`https://jsonplaceholder.typicode.com/users/${id}`).then(res => setDetalles(res.data))
+    
   },[id])
 
   return (
     <div className="card-detail">
     <Card sx={{ maxWidth: 250 }}>
-      <Link className=  "link" to={`/dentist/${detail.id}`}>
+      <Link className=  "link" to={`/dentist/${detalles.id}`}>
         <CardActionArea>
           <CardMedia className="imgHome" component="img" height="250" image="/images/doctor.jpg" alt="doctor" />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" noWrap>
-              {detail.name}
+              {detalles.name}
             </Typography>
             <Typography variant="body2" color="text.secondary" noWrap>
-              {detail.username}
+              {detalles.username}
             </Typography>
             <Typography variant="body2" color="text.secondary" noWrap>
-              {detail.email}
+              {detalles.email}
             </Typography>
             <Typography variant="body2" color="text.secondary" noWrap>
-              {detail.phone}
+              {detalles.phone}
             </Typography>
           </CardContent>
         </CardActionArea>

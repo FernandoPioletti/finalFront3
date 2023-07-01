@@ -5,27 +5,24 @@ import { Typography } from "@mui/material";
 
 const Fav = () => {
   // Obtener los datos del localStorage
-  const [favorites, setFavorites] = useState([])
+  const [favoritos, setFavoritos] = useState([])
 
   useEffect(()=>{
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    setFavorites(favorites)
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    setFavoritos(favoritos)
 
   },[] )
 
   return (
     <div>
-      <Typography color="primary" variant="h4" align="center">
-        Favorites
-      </Typography>
+   <h1>Favoritos</h1>
       <ul>
-        {favorites.map(({id, name, username}) => (
+        {favoritos.map(({id, name, username}) => (
           <Cards key={id} data = {{ id, name, username}} />
         ))}
       </ul>
     </div>
   );
 };
-
 export default Fav;
 

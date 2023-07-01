@@ -13,18 +13,18 @@ const Cards = ({ data }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleFavorite = () => {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
   
-    const isFavorite = favorites.find((fav) => fav.id === data.id);
+    const isFavorite = favoritos.find((fav) => fav.id === data.id);
   
     if (isFavorite) {
-      const updateFavorites = favorites.filter((fav) => fav.id !== data.id);
-      localStorage.setItem('favorites', JSON.stringify(updateFavorites));
-      alert("you remove a dentist to favorites!")
+      const updateFavoritos = favoritos.filter((fav) => fav.id !== data.id);
+      localStorage.setItem('favoritos', JSON.stringify(updateFavoritos));
+      alert("Has removido un destista de tu lista de favoritos!")
     } else {
-      favorites.push(data);
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-      alert("you add a dentist to favorites!")
+      favoritos.push(data);
+      localStorage.setItem('favoritos', JSON.stringify(favoritos));
+      alert("Has agregado un dentista a tu lista de favoritos!")
     }
   
     setIsFavorite(!isFavorite);

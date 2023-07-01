@@ -6,11 +6,11 @@ import * as Yup from "yup"
 
 const Form = () => {
 
-  const [mensaje2, setMensaje2] = useState(false)
+  const [mensaje, setMensaje] = useState(false)
 
   const sendForm = (data, { resetForm }) => {
     console.log(data);
-    setMensaje2(true);
+    setMensaje(true);
     localStorage.setItem('userName', data.name);
     localStorage.setItem('email', data.email);
     resetForm();
@@ -24,8 +24,8 @@ const { handleChange , handleSubmit, errors, values} = useFormik({
       },
   onSubmit: sendForm,
   validationSchema: Yup.object({
-    name: Yup.string().required("name is required").min(5,"character min is 5") ,
-    email: Yup.string().email("enter a valid email").required("email is required"),
+    name: Yup.string().required("El nombre es obligatorio").min(5,"Debe contar con al menos 5 caracteres") ,
+    email: Yup.string().email("Ingresá un mail válido").required("el mail es obligatorio"),
   }),
   
   
@@ -38,10 +38,7 @@ const { handleChange , handleSubmit, errors, values} = useFormik({
   return (
     <div className="form-container">
      
-
-      <Typography color="primary" variant="h4" align="center">
-        Contact
-      </Typography>
+      <h1>Contacto</h1>
       <form action="" onSubmit={handleSubmit}>
         <Grid 
           padding={5}
@@ -62,7 +59,6 @@ const { handleChange , handleSubmit, errors, values} = useFormik({
               onChange={handleChange}
               value={values.name}
            helperText={errors.name}
-          
             />
           </Grid>
 
@@ -83,16 +79,13 @@ const { handleChange , handleSubmit, errors, values} = useFormik({
           </Grid>
         </Grid>
         
-    
-         {errors.name}
-
         <Button className="button" type="submit" variant="contained">
-          Send
+          Enviar
         </Button>
      
       </form>
 
-      {mensaje2 && <p>¡Thank you so much {localStorage.getItem('userName')}, we will contact you at the following email {localStorage.getItem('email')}!</p>}
+      {mensaje && <p>¡Muchas gracias {localStorage.getItem('userName')}, nos contactaremos al mail {localStorage.getItem('email')}!</p>}
     </div>
   );
 };

@@ -11,7 +11,7 @@ export const ContextProvider = ({ children }) => {
 
  
 
-  function toggle() {
+  function handleToggle() {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   }
   
@@ -22,7 +22,7 @@ export const ContextProvider = ({ children }) => {
   
     const obj ={
       theme,
-      toggle,
+      handleToggle,
       setTheme
     }
       

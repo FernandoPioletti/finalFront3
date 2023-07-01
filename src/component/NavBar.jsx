@@ -8,28 +8,20 @@ import { Typography } from "@mui/material";
 import Home from "../routes/Home";
 
 const NavBar = () => {
-
  const {obj} = useContext(ContextGlobal)
- 
- 
   return (
     <nav className="navbar-container">
-         
-        <Link className= "link" to= "/home">
+        
         <div className="logo">
         <img src="/images/DH.ico"></img>
-        <Typography style={{ fontSize: '2rem' }}>DENT</Typography>
-        </div>
-        </Link>
-       
+        </div>  
         <div className="navbar-link">
          <Link className="link" to = "/home"> <h2 className="link">Home</h2> </Link>
-         <Link className="link" to = "/contact"> <h2 className="link">Contact</h2> </Link>
-         <Link className="link" to = "/favs"> <h2 className="link">Fav</h2> </Link>
-        <button className= "btnToggle" onClick = {obj.toggle}>{obj.theme === "light"?<ModeNightIcon color="warning"/> : <LightModeIcon/>}</button>
+         <Link className="link" to = "/contact"> <h2 className="link">Contacto</h2> </Link>
+         <Link className="link" to = "/favs"> <h2 className="link">Favoritos</h2> </Link>
+        <button className= "btnToggle" onClick = {obj.handleToggle}>{obj.theme === "light"?<p>Modo oscuro</p>:<p>Modo Claro</p>}</button>
         </div>
     </nav>
   )
 }
-
 export default NavBar

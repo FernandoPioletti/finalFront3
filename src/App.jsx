@@ -6,16 +6,11 @@ import Fav from "./routes/Fav"
 import NavBar from "./component/NavBar"
 import Footer from "./component/Footer"
 
-
-
-
 const App = () => {
   return (
-
     <>
     <NavBar />
     <Routes>
-    <Route path="/" element={<Navigate to="/home" />} />
     <Route path="/home" element={<Home />} />
     <Route path="/dentist/:id" element={<Details />}/>
     <Route path="/contact" element = {<Contact />} />
