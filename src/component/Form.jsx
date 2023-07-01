@@ -1,27 +1,34 @@
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import { ErrorMessage, useFormik } from "formik";
+import { useState } from "react";
 import * as Yup from "yup"
 
 
 const Form = () => {
 
+  const [mensaje2, setMensaje2] = useState(false)
+
+  const sendForm = (data, { resetForm }) => {
+    console.log(data);
+    setMensaje2(true);
+    localStorage.setItem('userName', data.name);
+    localStorage.setItem('email', data.email);
+    resetForm();
+  }
 
 const { handleChange , handleSubmit, errors, values} = useFormik({
 
   initialValues: {
-    nombre: "",
+    name: "",
     email: "",
       },
+  onSubmit: sendForm,
   validationSchema: Yup.object({
-    nombre: Yup.string().required("El nombre es obligatorio").min(5,"El minimo debe ser 5 caracteres") ,
-    email: Yup.string().email("Ingrese un email valido").required("El email es obligatorio"),
+    name: Yup.string().required("name is required").min(5,"character min is 5") ,
+    email: Yup.string().email("enter a valid email").required("email is required"),
   }),
   
-  onSubmit: (data) => {
-   console.log("paso");
-   console.log(data);
-
-  },
+  
  
   
 })
@@ -29,31 +36,32 @@ const { handleChange , handleSubmit, errors, values} = useFormik({
 
 
   return (
-    <div>
+    <div className="form-container">
      
 
       <Typography color="primary" variant="h4" align="center">
-        Consultas
+        Contact
       </Typography>
       <form action="" onSubmit={handleSubmit}>
-        <Grid
+        <Grid 
+          padding={5}
           container
           alignItems={"center"}
           justifyContent={"space-evenly"}
           spacing={3}
           sx={{ width: "100%" }}
         >
-          <Grid item xs={12} md={6}>
+          <Grid  item xs={12} md={6}>
             <TextField
               type="text"
               id="outlined-basic"
               label="name"
               variant="outlined"
               fullWidth
-              name="nombre"
+              name="name"
               onChange={handleChange}
-              value={values.nombre}
-           helperText={errors.nombre}
+              value={values.name}
+           helperText={errors.name}
           
             />
           </Grid>
@@ -78,11 +86,13 @@ const { handleChange , handleSubmit, errors, values} = useFormik({
     
          {errors.name}
 
-        <Button type="submit" variant="contained">
-          Enviar
+        <Button className="button" type="submit" variant="contained">
+          Send
         </Button>
      
       </form>
+
+      {mensaje2 && <p>¡Thank you so much {localStorage.getItem('userName')}, we will contact you at the following email {localStorage.getItem('email')}!</p>}
     </div>
   );
 };

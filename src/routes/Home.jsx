@@ -20,20 +20,21 @@ const Home = () => {
   console.log(dentist);
 
   return(
-    <>
-
+    
+  <div className="card-container">
    
   {
     dentist.map( (data) =>{
       return(
-        <Cards data = {data} key={data.id} />
+        <Cards data ={data} key={data.id} />
         
       )}
 
     )
       
   }
-  </>
+  </div>
+  
   ) 
   
 }

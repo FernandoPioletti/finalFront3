@@ -1,4 +1,3 @@
-
 .dark{
   background-color: #12121296;
   color: white;
@@ -7,4 +6,139 @@
 .light {
   background-color: white;
   color:#12121296; 
+}
+
+.navbar-container {
+  display: flex;
+ 
+  justify-content: space-between;
+  margin: 20px 50px 20px 50px;
+  align-items: center;
+  
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+
+.logo > img {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+
+}
+
+
+.navbar-link {
+  display: flex;
+  justify-content: space-around;
+  width: 25vw;
+
+}
+ 
+.link {
+  /* margin-left: 12vw;  */
+  color: #000000;
+  text-decoration: none;
+  
+  
+  
+}
+
+.btnToggle {
+  margin-right: 12vw;
+  margin-left: 12vw;
+  margin: 20px;
+ 
+  
+
+}
+
+
+
+.card-container{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  width: 90vw;
+  height: auto;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  
+}
+
+
+.card:hover{
+  border: 0.5px solid rgb(206, 217, 142);
+}
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 300px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form-container > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+
+.form-container > form > .button {
+  width: 5px;
+  justify-content: center;
+}
+
+.card-detail{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+
+
+.footer-container{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: grey;
+ 
+ }
+
+.footer-items {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  bottom: 0;
+  width: 90%;
+  height: 60px;
+  margin-top: 10px;
+}
+
+.icon-footer{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  padding: 10px;
+  justify-content:space-around ;
+  width: 15vw;
+    
+  
+}
+
+
+.footer-items > img{
+  width: 200px;
+  margin: 0;
 }

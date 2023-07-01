@@ -1,6 +1,7 @@
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 
 
@@ -20,9 +21,30 @@ const Details = () => {
   },[id])
 
   return (
-    
-    <h1>{detail.name}</h1>
-
+    <div className="card-detail">
+    <Card sx={{ maxWidth: 250 }}>
+      <Link className=  "link" to={`/dentist/${detail.id}`}>
+        <CardActionArea>
+          <CardMedia className="imgHome" component="img" height="250" image="/images/doctor.jpg" alt="doctor" />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div" noWrap>
+              {detail.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" noWrap>
+              {detail.username}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" noWrap>
+              {detail.email}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" noWrap>
+              {detail.phone}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Link>
+      
+    </Card>
+    </div>
   )
 }
 

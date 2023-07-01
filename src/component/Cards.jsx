@@ -20,24 +20,27 @@ const Cards = ({ data }) => {
     if (isFavorite) {
       const updateFavorites = favorites.filter((fav) => fav.id !== data.id);
       localStorage.setItem('favorites', JSON.stringify(updateFavorites));
+      alert("you remove a dentist to favorites!")
     } else {
       favorites.push(data);
       localStorage.setItem('favorites', JSON.stringify(favorites));
+      alert("you add a dentist to favorites!")
     }
   
     setIsFavorite(!isFavorite);
   };
 
   return (
-    <Card sx={{ maxWidth: 400 }}>
-      <Link to={`/dentist/${data.id}`}>
+    <div>
+    <Card sx={{ maxWidth: 250 }}>
+      <Link className=  "link" to={`/dentist/${data.id}`}>
         <CardActionArea>
-          <CardMedia component="img" height="250" image="/images/doctor.jpg" alt="doctor" />
+          <CardMedia className="imgHome" component="img" height="250" image="/images/doctor.jpg" alt="doctor" />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div" noWrap>
               {data.name}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" noWrap>
               {data.username}
             </Typography>
           </CardContent>
@@ -49,7 +52,9 @@ const Cards = ({ data }) => {
         </IconButton>
       </CardActions>
     </Card>
+    </div>
   );
+ 
 };
 
 export default Cards;
